@@ -25,7 +25,7 @@
             $('#loginForm').submit(function (event) {
                 event.preventDefault();
 
-                var memberId = $('#memberId').val();
+                var username = $('#username').val();
                 var memberPassword = $('#memberPassword').val();
 
                 $.ajax({
@@ -55,7 +55,7 @@
     <h2>로그인</h2>
     <form id="loginForm" method="post" action="member/check">
         <label for="memberId">아이디:</label>
-        <input type="text" id="memberId" name="memberId" required><br><br>
+        <input type="text" id="memberId" name="username" required><br><br>
         
         <label for="memberPassword">비밀번호:</label>
         <input type="password" id="memberPassword" name="memberPassword" required><br><br>
