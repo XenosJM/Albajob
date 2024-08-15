@@ -31,25 +31,118 @@
         overflow-y: auto;
     } /* 검색창 css */
     
+    .input-box {
+	    width: 100%;
+	    max-width: 500px; /* 최대 너비 설정 */
+	    height: 40px;
+	}
+	
+	/* GNB 기본 스타일 */
+	.header-gnb-base {
+	    background-color: white;
+	    padding: 10px;
+	}
+	
+	/* 메뉴 리스트 스타일 */
+	.header-gnb-base_menu {
+	    list-style-type: none;
+	    margin: 0;
+	    padding: 0;
+	    display: flex;
+	}
+	
+	/* 개별 메뉴 아이템 스타일 */
+	.header-gnb-base_menu .menu-item {
+	    margin-right: 20px;
+	}
+	
+	/* 링크 스타일 */
+	.header-gnb-base_menu .menu-item a {
+	    text-decoration: none;
+	    color: black;
+	    padding: 10px;
+	    display: block;
+	}
+
+	/* 메뉴 아이템에 마우스를 올렸을 때 */
+	.header-gnb-base_menu .menu-item a:hover {
+	    background-color: orange;	
+	}
     
 	</style>  
 </head>  
 	<body>
 		<header class="bg-primary text-white text-center py-1">
-			<h1> </h1><p>최고의 일자리를 찾아보세요!</p>
+			<p>최고의 일자리를 찾아보세요!</p>
+		    
+			<section class="main">
+				<div class="container left">
+		           	<input class="input-box" type="text" size="20" maxlength="20" placeholder="검색어를 입력하세요...">
+		            <div class="dropdown-menu" id="dropdownMenu"></div>
+		        </div>
+				<nav class="header-gnb-base">
+					<div class="left">
+						<ul class="header-gnb-base_menu">
+							<li class="menu-item">
+								<a id="job-info" href="job/info">
+									<span>
+										채용정보
+									</span>
+								</a>
+							</li>
+							
+							<li class="menu-item">
+								<a id="job-info" href="job/brand">
+									<span>
+										브랜드 알바
+									</span>
+								</a>
+							</li>
+							
+							<li class="menu-item">
+								<a id="job-info" href="user-service">
+									<span>
+										회원 서비스
+									</span>
+								</a>
+							</li>
+							
+							<li class="menu-item">
+								<a id="job-info" href="human-resource">
+									<span>
+										인재정보
+									</span>
+								</a>
+							</li>
+							
+							<li class="menu-item">
+								<a id="job-info" href="alba-talk/home">
+									<span>
+										채용정보
+									</span>
+								</a>
+							</li>
+							
+							<li class="menu-item">
+								<a id="job-info" href="service-center/register">
+									<span>
+										고객센터
+									</span>
+								</a>
+							</li>
+							
+						</ul>
+					</div>
+					<div class="right">
+				        <button class="btn btn-primary right" id="memberLogin">로그인</button>
+				        <button class="btn btn-success right" id="memberRegist">회원가입</button>
+					</div>
+				</nav>
+				<div id="additional-nav">
+					
+				</div>
+			</section>
 		</header>
-		<section class="main">
-			<div class="container left">
-            	<input class="left" type="text" maxlength="20" autocomplete="off" placeholder="검색어를 입력하세요...">
-	            <div class="dropdown-menu" id="dropdownMenu">
-	                <!-- 드롭다운 항목들이 동적으로 추가됩니다 -->
-	            </div>
-	        </div>
-			<div class="container right">
-		        <button class="btn btn-primary" id="memberLogin">로그인</button>
-		        <button class="btn btn-success" id="memberRegist">회원가입</button>
-			</div>
-		</section>
 		
 		<section class="container" id="vip">
 			<h2> VIP </h2>
@@ -146,6 +239,10 @@
 		 	$(document).on('click', '#memberRegist', function () {
                 window.location.href = "regist";
             });
+		 	
+		 	$(document).on('mouseover', '#additional-nav', function(){
+		 		
+		 	});
 		})
 		</script>
 	</body>

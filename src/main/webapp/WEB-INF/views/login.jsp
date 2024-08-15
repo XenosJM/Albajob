@@ -33,12 +33,12 @@
                     url: '../member/check',
                     contentType: 'application/json; charset=UTF-8',
                     data: JSON.stringify({
-                        memberId: memberId,
+                        username: username,
                         memberPassword: memberPassword
                     }),
                     success: function (result) {
                         if (result === 1) {
-                        	alert(memberId + '님 환영합니다.');
+                        	alert(username + '님 환영합니다.');
                         } else {
                             alert('로그인 실패. 다시 시도해주세요.');
                         }
