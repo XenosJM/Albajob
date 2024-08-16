@@ -1,0 +1,17 @@
+package com.web.albajob.domain;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@NoArgsConstructor
+@Getter
+@Setter
+@ToString
+public class RoleVO {	
+	private int roleId; // pk
+	private String userName; // 유저아이디
+	private String roleName; // 역할이름
+	
+}
