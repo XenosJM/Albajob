@@ -68,13 +68,46 @@
 	.header-gnb-base_menu .menu-item a:hover {
 	    background-color: orange;	
 	}
+	
+	.menu-item {
+	  position: relative;
+	  margin-right: 1rem;
+	  color: white;
+	  cursor: pointer;
+	}
+	
+	.menu-item .dropdown-menu {
+	  display: none;
+	  position: absolute;
+	  top: 100%;
+	  left: 0;
+	  background-color: white;
+	  padding: 0.5rem;
+	  min-width: 150px;
+	  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+	}
+	
+	.menu-item .dropdown-menu a {
+	  color: black;
+	  text-decoration: none;
+	  display: block;
+	  padding: 0.5rem;
+	}
+	
+	.menu-item .dropdown-menu a:hover {
+	  background-color: orange;
+	}
+	
+	.menu-item:hover .dropdown-menu {
+	  display: block;
+	}
     
 	</style>  
 </head>  
 	<body>
 		<header class="bg-primary text-white text-center py-1">
 			<p>최고의 일자리를 찾아보세요!</p>
-		    
+		    <!-- 현재 상황으로선 정적으로 이루어진 상태 추후에는 js를 이용해 데이터 변경과 입력 및 삭제가 가능하도록 변경 해볼 것. -->
 			<section class="main">
 				<div class="container left">
 		           	<input class="input-box" type="text" size="20" maxlength="20" placeholder="검색어를 입력하세요...">
@@ -89,6 +122,11 @@
 										채용정보
 									</span>
 								</a>
+								<div class="dropdown-menu">
+									<a href="#">추가 메뉴1</a>
+									<a href="#">추가 메뉴2</a>
+									<a href="#">추가 메뉴3</a>
+								</div>
 							</li>
 							
 							<li class="menu-item">
@@ -138,7 +176,7 @@
 				        <button class="btn btn-success right" id="memberRegist">회원가입</button>
 					</div>
 				</nav>
-				<div id="additional-nav">
+				<div id="additional-gnb">
 					
 				</div>
 			</section>
@@ -161,7 +199,7 @@
 			</div>
 		</section>
 		
-		<section class="container">
+		<section class="container" id="platinum">
 			<h2> 플래티넘 </h2>
 			<div class="job">
 				<h3>웹 개발자</h3>
@@ -178,7 +216,7 @@
 			</div>
 		</section>
 		
-		<section class="container">
+		<section class="container" id="gold">
 			<h2> 골드 </h2>
 			<div class="job">
 				<h3>웹 개발자</h3>
@@ -195,7 +233,7 @@
 			</div>
 		</section>
 		
-		<section class="container">
+		<section class="container" id="silver">
 			<h2> 실버 </h2>
 			<div class="job">
 				<h3>웹 개발자</h3>
@@ -215,6 +253,7 @@
 		<footer class="bg-light text-center py-2">
 			<p>© 2023 구인/구직 사이트. 목쌤이 모든 권리 보유.</p>
 		</footer>
+		
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -243,6 +282,8 @@
 		 	$(document).on('mouseover', '#additional-nav', function(){
 		 		
 		 	});
+		 	
+		 	
 		})
 		</script>
 	</body>
