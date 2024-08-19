@@ -11,10 +11,9 @@ import com.web.albajob.domain.TownVO;
 import com.web.albajob.domain.VillageVO;
 
 @Mapper
-public interface SearchMapper {
-	List<CityVO> selectCity();
-	List<TownVO> selectTown(int cityId);
-	List<VillageVO> selectVillage(int townId);
-	List<CategoryVO> selectCategory();
-	List<JobVO> selectJob(int categoryId);
+public interface LocationMapper {
+	List<CityVO> selectCity(); // 시.도 선택
+	List<TownVO> selectTown(int cityId); // 시.구.군 선택(시.도 선택에 따른)
+	List<VillageVO> selectVillage(int townId); // 동.읍.면 선택(시.구.군 선택에 따른)
+	
 }

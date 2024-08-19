@@ -3,7 +3,7 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.web.albajob.persistence.SearchMapper">
+<mapper namespace="com.web.albajob.persistence.LocationMapper">
 
 	<resultMap type="com.web.albajob.dimain.CityVO" id="cityResultMap">
 		<id property="cityId" column="CITY_ID" />
@@ -22,17 +22,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="villageName" column="VILLAGE_NAME" />
 	</resultMap>
 	
-	<resultMap type="com.web.albajob.dimain.CategoryVO" id="categoryResultMap">
-		<id property="categoryId" column="CATEGORY_ID" />
-		<result property="categoryName" column="CATEGORY_NAME" />
-	</resultMap>
-	
-	<resultMap type="com.web.albajob.dimain.JobVO" id="jobResultMap">
-		<id property="categoryId" column="CATEGORY_ID" />
-		<result property="jobId" column="JOB_ID" />
-		<result property="jobName" column="JOB_NAME" />
-	</resultMap>
-	
 	<select id="selectCity" resultMap="cityResultMap">
 		SELECT * FROM CITY
 	</select>
@@ -46,16 +35,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT * FROM VILLAGE
 		WHERE TOWN_ID = #{townId}
 	</select>
-	
-	<select id="selectCategory" resultMap="categoryResultMap">
-		SELECT * FROM CATEGORY
-	</select>
-	
-	<select id="selectJob" resultMap="jobResultMap">
-		SELECT * FROM JOB
-		WHERE CATEGORY_ID = #{categoryId}
-	</select>
-	
-	
+
 	
 </mapper>

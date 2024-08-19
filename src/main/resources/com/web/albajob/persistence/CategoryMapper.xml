@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.web.albajob.persistence.CategoryMapper">
+	
+	<resultMap type="com.web.albajob.dimain.CategoryVO" id="categoryResultMap">
+		<id property="categoryId" column="CATEGORY_ID" />
+		<result property="categoryName" column="CATEGORY_NAME" />
+	</resultMap>
+	
+	<resultMap type="com.web.albajob.dimain.JobVO" id="jobResultMap">
+		<id property="categoryId" column="CATEGORY_ID" />
+		<result property="jobId" column="JOB_ID" />
+		<result property="jobName" column="JOB_NAME" />
+	</resultMap>
+	
+	<select id="selectCategory" resultMap="categoryResultMap">
+		SELECT * FROM CATEGORY
+	</select>
+	
+	<select id="selectJob" resultMap="jobResultMap">
+		SELECT * FROM JOB
+		WHERE CATEGORY_ID = #{categoryId}
+	</select>
+	
+</mapper>
