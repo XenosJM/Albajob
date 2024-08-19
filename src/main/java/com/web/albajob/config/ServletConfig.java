@@ -26,6 +26,8 @@ public class ServletConfig implements WebMvcConfigurer{
 	   registry.viewResolver(viewResolver);
 	}
 	
+	
+	
 	 @Override
 	 public void addResourceHandlers(ResourceHandlerRegistry registry) {
 
