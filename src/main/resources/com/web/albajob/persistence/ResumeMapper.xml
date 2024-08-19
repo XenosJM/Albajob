@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.web.albajob.persistence.ResumeMapper">
+
+	<resultMap type="com.web.albajob.domain.ResumeVO"
+      id="ResumeResultMap">
+      <id property="resumeId" column="RESUME_ID" /> 
+      <result property="userName" column="USER_NAME" />
+      <result property="resumeTitle" column="RESUME_TITLE"/>
+      <result property="education" column="EDUCATION"/>
+      <result property="experience" column="EXPERIENCE"/>
+      <result property="townName" column="TOWN_NAME" />
+      <result property="cityName" column="CITY_NAME"/>
+      <result property="jobName" column="JOB_NAME"/>
+      <result property="workForm" column="WORK_FORM"/>
+      <result property="periodName" column="PERIOD_NAME" />
+      <result property="dayName" column="DAY_NAME"/>
+      <result property="parttimeName" column="PARTTIME_NAME"/>
+      <result property="salary" column="SALARY"/>
+      <result property="salaryForm" column="SALARY_FORM" />
+      <result property="skill" column="SKILL"/>
+      <result property="intro" column="INTRO"/>
+      <result property="resumeDateCreated" column="RESUME_DATE_CREATED"/>
+   </resultMap>
+   
+   <!-- 이력서 등록 -->
+   <insert id="insertResume">
+   	  INSERT INTO RESUME (RESUME_ID, USER_NAME, RESUME_TITLE, EDUCATION,
+       EXPERIENCE, TOWN_NAME, CITY_NAME, CITY_NAME, JOB_NAME, WORK_FORM, 
+       PERIOD_NAME, DAY_NAME, PARTTIME_NAME, SALARY, SALARY_FORM, 
+       SKILL, INTRO, RESUME_DATE_CREATED)
+      VALUES (0, #{userName}, #{resumeTitle}, #{education}, #{experience}, 
+      #{townName}, #{cityName}, #{jobName}, #{workForm}, #{periodName},
+      #{dayName}, #{dayName}, #{parttimeName}, #{salary}, #{salaryForm},
+      #{skill}, #{intro}, CURRENT_TIMESTAMP())
+   </insert>
+   
+   <update id="updateInquiry">
+      UPDATE RESUME
+      SET INQUIRY_CONTENT = #{inquiryContent}
+      WHERE PRODUCT_ID = #{productId} AND USER_NAME = #{userName}
+   </update>
+   
+   <delete id="deleteResume">
+      DELETE FROM RESUME
+      WHERE RESUME_ID = #{resumeId} AND USER_NAME = #{userName}
+   </delete>
+   
+   <!-- 회원의 모든 이력서 가져오기 -->
+   <select id="selectByResume" resultMap="reviewResultMap">
+   		SELECT * FROM RESUME
+	 	WHERE USER_NAME = #{userName}
+   </select>
+   
+   <!-- 특정 이력서 가져오기 -->
+   <select id="selectByResumeUserId" resultMap="reviewResultMap">
+   		SELECT * FROM RESUME
+	 	WHERE USER_NAME = #{userName} AND RESUME_ID = #{resumeId}
+   </select>
+
+   </mapper>
