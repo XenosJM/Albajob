@@ -5,12 +5,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.web.albajob.persistence.CategoryMapper">
 	
-	<resultMap type="com.web.albajob.dimain.CategoryVO" id="categoryResultMap">
+	<resultMap type="com.web.albajob.domain.CategoryVO" id="categoryResultMap">
 		<id property="categoryId" column="CATEGORY_ID" />
 		<result property="categoryName" column="CATEGORY_NAME" />
 	</resultMap>
 	
-	<resultMap type="com.web.albajob.dimain.JobVO" id="jobResultMap">
+	<resultMap type="com.web.albajob.domain.JobVO" id="jobResultMap">
 		<id property="categoryId" column="CATEGORY_ID" />
 		<result property="jobId" column="JOB_ID" />
 		<result property="jobName" column="JOB_NAME" />

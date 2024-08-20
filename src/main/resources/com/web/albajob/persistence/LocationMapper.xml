@@ -5,18 +5,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.web.albajob.persistence.LocationMapper">
 
-	<resultMap type="com.web.albajob.dimain.CityVO" id="cityResultMap">
+	<resultMap type="com.web.albajob.domain.CityVO" id="cityResultMap">
 		<id property="cityId" column="CITY_ID" />
 		<result property="cityName" column="CITY_NAME" />
 	</resultMap>
 	
-	<resultMap type="com.web.albajob.dimain.TownVO" id="townResultMap">
+	<resultMap type="com.web.albajob.domain.TownVO" id="townResultMap">
 		<id property="cityId" column="CITY_ID" />
 		<result property="townId" column="TOWN_ID" />
 		<result property="townName" column="TOWN_NAME" />
 	</resultMap>
 	
-	<resultMap type="com.web.albajob.dimain.VillageVO" id="villageResultMap">
+	<resultMap type="com.web.albajob.domain.VillageVO" id="villageResultMap">
 		<id property="townId" column="TOWN_ID" />
 		<result property="villageId" column="VILLAGE_ID" />
 		<result property="villageName" column="VILLAGE_NAME" />
