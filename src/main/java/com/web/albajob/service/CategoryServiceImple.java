@@ -21,17 +21,13 @@ public class CategoryServiceImple implements CategoryService {
 	@Override
 	public List<CategoryVO> getAllCategory() {
 		log.info("getAllCategory()");
-		List<CategoryVO> categoryVO = categoryMapper.selectCategory();
-		log.info("categoryVO : " + categoryVO);
-		return null;
+		return categoryMapper.selectCategory();
 	}
 
 	@Override
 	public List<JobVO> getAllJob(int categoryId) {
 		log.info("getAllJob()");
-		List<JobVO> jobVO = categoryMapper.selectJob(categoryId);
-		log.info("jobVO : " + jobVO);
-		return null;
+		return categoryMapper.selectJob(categoryId);
 	}
 
 }

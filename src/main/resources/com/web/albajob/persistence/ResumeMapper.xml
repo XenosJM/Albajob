@@ -6,7 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.web.albajob.persistence.ResumeMapper">
 
 	<resultMap type="com.web.albajob.domain.ResumeVO"
-      id="ResumeResultMap">
+      id="resumeResultMap">
       <id property="resumeId" column="RESUME_ID" /> 
       <result property="userName" column="USER_NAME" />
       <result property="resumeTitle" column="RESUME_TITLE"/>
@@ -50,13 +50,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    </delete>
    
    <!-- 회원의 모든 이력서 가져오기 -->
-   <select id="selectByResume" resultMap="reviewResultMap">
+   <select id="selectByResume" resultMap="resumeResultMap">
    		SELECT * FROM RESUME
 	 	WHERE USER_NAME = #{userName}
    </select>
    
    <!-- 특정 이력서 가져오기 -->
-   <select id="selectByResumeUserId" resultMap="reviewResultMap">
+   <select id="selectByResumeUserId" resultMap="resumeResultMap">
    		SELECT * FROM RESUME
 	 	WHERE USER_NAME = #{userName} AND RESUME_ID = #{resumeId}
    </select>

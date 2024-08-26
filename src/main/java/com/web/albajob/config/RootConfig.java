@@ -21,8 +21,8 @@ import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
 @Configuration
-//@ComponentScan(basePackages = {"com.web.albajob.service"})
-//@MapperScan(basePackages = {"com.web.albajob"})
+@ComponentScan(basePackages = {"com.web.albajob.service"})
+@MapperScan(basePackages = {"com.web.albajob"})
 @EnableTransactionManagement
 public class RootConfig {
 	

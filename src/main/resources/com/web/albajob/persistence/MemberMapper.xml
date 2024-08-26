@@ -48,14 +48,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE USER_PHONE = #{userPhone}
 	</select>
 	
-	<select id="findUserNameByPhone" parameterType="string"
+	<select id="findUserNameByMail" parameterType="string"
 		resultType="string">
 		SELECT USER_NAME
 		FROM Member
 		WHERE USER_MAIL = #{userMail}
 	</select>
 	
-	<select id="findUserNameByPhone" parameterType="int"
+	<select id="findUserPW" parameterType="int"
 		resultType="string">
 		SELECT USER_PASSWORD
 		FROM Member

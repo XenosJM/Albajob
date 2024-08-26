@@ -1,5 +1,5 @@
 package com.web.albajob.controller;
 
-public class CategoryController {
+public class CategoryRESTController {
 
 }

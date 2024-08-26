@@ -22,25 +22,22 @@ public class LocationServiceImple implements LocationService {
 	@Override
 	public List<CityVO> getAllCity() {
 		log.info("getAllCity()");
-		List<CityVO> cityVO = locationMapper.selectCity();
-		log.info("cityVO : " + cityVO);
-		return null;
+		List<CityVO> list = locationMapper.selectCity();
+		return list;
 	}
 
 	@Override
 	public List<TownVO> getAllTown(int cityId) {
 		log.info("getAllTown()");
-		List<TownVO> townVO = locationMapper.selectTown(cityId);
-		log.info("townVO : " + townVO);
-		return null;
+		List<TownVO> list = locationMapper.selectTown(cityId);
+		return list;
 	}
 
 	@Override
 	public List<VillageVO> getAllVillage(int townId) {
 		log.info("getAllVillage()");
-		List<VillageVO> villageVO = locationMapper.selectVillage(townId);
-		log.info("villageVO : " + villageVO);
-		return null;
+		List<VillageVO> list = locationMapper.selectVillage(townId);
+		return list;
 	}
 
 }

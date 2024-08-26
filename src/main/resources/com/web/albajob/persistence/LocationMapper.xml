@@ -22,16 +22,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="villageName" column="VILLAGE_NAME" />
 	</resultMap>
 	
-	<select id="selectCity" resultMap="cityResultMap">
+	<select id="selectCity" resultMap="cityResultMap"> <!-- 시.도 목록 조회 -->
 		SELECT * FROM CITY
 	</select>
 	
-	<select id="selectTown" resultMap="townResultMap">
+	<select id="selectTown" resultMap="townResultMap"> <!-- 시.구.군 목록 조회 -->
 		SELECT * FROM TOWN
 		WHERE CITY_ID = #{cityId}
 	</select>
 	
-	<select id="selectVillage" resultMap="villageResultMap">
+	<select id="selectVillage" resultMap="villageResultMap"> <!-- 동.읍.면 목록 조회 -->
 		SELECT * FROM VILLAGE
 		WHERE TOWN_ID = #{townId}
 	</select>

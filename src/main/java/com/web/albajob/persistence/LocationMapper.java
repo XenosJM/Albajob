@@ -4,9 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.web.albajob.domain.CategoryVO;
 import com.web.albajob.domain.CityVO;
-import com.web.albajob.domain.JobVO;
 import com.web.albajob.domain.TownVO;
 import com.web.albajob.domain.VillageVO;
 
