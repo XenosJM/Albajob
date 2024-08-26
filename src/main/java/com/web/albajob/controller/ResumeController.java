@@ -1,9 +1,15 @@
 package com.web.albajob.controller;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.web.albajob.domain.ResumeVO;
+import com.web.albajob.service.ResumeService;
 
 import lombok.extern.log4j.Log4j;
 
@@ -12,9 +18,18 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 public class ResumeController {
 	
-	@GetMapping
-	public void createResume(Model model) {// ·Î±×ÀÎ ÇÑ È¸¿øid¸¦ °¡Á®¿Í¼­ ÀÌ·Â¼­ ºÒ·Á¿À±â
+	@Autowired 
+	private ResumeService resumeService;
+	
+	// íšŒì›ì˜ ëª¨ë“  ì´ë ¥ì„œ ì œëª©ê³¼ ìµœì¢… ì‹œê°„ ê²€ìƒ‰
+	@GetMapping("/list")
+	public void createResume(Model model, String userName) {
 		log.info("createResume()");
-		model.addAttribute("productList");
+		List<ResumeVO> resumeVO = resumeService.getAllResume(userName);
+		log.info("resumeVO : " + resumeVO);
+		model.addAttribute("resumeVO", resumeVO);
 	}
+	
+	
+	
 }

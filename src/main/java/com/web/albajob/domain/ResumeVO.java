@@ -16,6 +16,7 @@ public class ResumeVO {
 	private int userName;
 	private String resumeTitle;
 	private String education;
+	private String educationForm;
 	private String experience;
 	private String townName;
 	private String cityName;

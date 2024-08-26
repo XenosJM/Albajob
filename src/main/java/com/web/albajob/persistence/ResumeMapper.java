@@ -10,18 +10,18 @@ import com.web.albajob.domain.ResumeVO;
 @Mapper
 public interface ResumeMapper {
 	
-
+	// 이력서 등록
 	int insertResume(ResumeVO resumeVO);
 		 
-
-	List<ResumeVO> selectByResume(int productId);
+	// 이력서 검색
+	List<ResumeVO> selectByResumeTitle(String userName);
 	
-
-	List<ResumeVO> selectByResumeUserId(int productId);
+	// 상세 이력서 검색
+	List<ResumeVO> selectByResumeUserId(@Param("userName")String userName, @Param("resumeId")int resumeId);
 	
-
+	// 이력서 수정
 	int updateInquiry(ResumeVO resumeVO);
-	 
-
+	
+	// 이력서 삭제
 	int deleteResume(@Param("userName")String userName, @Param("resumeId")int resumeId);
 }
