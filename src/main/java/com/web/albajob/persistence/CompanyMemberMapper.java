@@ -7,10 +7,11 @@ import com.web.albajob.domain.MemberVO;
 
 @Mapper
 public interface CompanyMemberMapper{
-	int insertMember(CompanyMemberVO vo);
+	int insertCompanymember(CompanyMemberVO vo);
 	String findUserNameByPhone(int userPhone);
 	String findUserNameByMail(String userMail);
-	String findUserPW(String userName);
+	String updatePW(CompanyMemberVO vo);
 	int updateMember(CompanyMemberVO vo);
 	int deleteMember(int userId);
+	CompanyMemberVO memberCheck(String userName);
 }

@@ -27,6 +27,12 @@ public class HomeController {
 		return "login";
 	}
 	
+	@GetMapping("/regist")
+	public String regist() {
+		log.info("회원가입 페이지");
+		return "regist";
+	}
+	
 	
 	
 	
