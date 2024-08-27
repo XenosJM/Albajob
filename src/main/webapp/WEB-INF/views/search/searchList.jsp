@@ -64,13 +64,14 @@
 				console.log('url' + url);
 				$.getJSON(
 					url,
+					console.log('getJSON()'),
 					function(data) {
-						let citylist = '';
 						console.log(data);
+						let list = '';
 						
 						$(data).each(function(){
 							console.log(this);
-							citylist += '<option value="' + this.cityId + '">'
+							list += '<option value="' + this.cityId + '">'
 							+ this.cityName
 							+ '</option>';
 						}); // end each

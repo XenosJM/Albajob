@@ -22,7 +22,7 @@ import com.zaxxer.hikari.HikariDataSource;
 
 @Configuration
 @ComponentScan(basePackages = {"com.web.albajob.service"})
-@MapperScan(basePackages = {"com.web.albajob"})
+@MapperScan(basePackages = {"com.web.albajob.persistence"})
 @EnableTransactionManagement
 public class RootConfig {
 	
