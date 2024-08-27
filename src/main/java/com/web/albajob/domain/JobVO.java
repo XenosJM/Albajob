@@ -10,7 +10,7 @@ import lombok.ToString;
 @Setter
 @ToString
 public class JobVO {
-	private int categoryId; // 대분류 인덱스
+	private int categoryId; // 대분류 인덱스(FK)
 	private int jobId; // 업직종 인덱스
 	private String jobName; // 업직종 이름
 }

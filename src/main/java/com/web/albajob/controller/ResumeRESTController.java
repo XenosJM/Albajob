@@ -16,9 +16,5 @@ public class ResumeRESTController {
 	
 	@Autowired
 	private ResumeService resumeService;
-	
-	@GetMapping("/list")
-	public void readAllReviewUser
-	
 			
 }

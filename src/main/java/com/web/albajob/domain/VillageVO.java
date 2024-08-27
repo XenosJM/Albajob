@@ -10,7 +10,7 @@ import lombok.ToString;
 @Setter
 @ToString
 public class VillageVO {
-	private int townId; // 시.구.군 인덱스
+	private int townId; // 시.구.군 인덱스(FK)
 	private int villageId; // 동.읍.면 인덱스
 	private String villageName; // 동.읍.면 이름
 }

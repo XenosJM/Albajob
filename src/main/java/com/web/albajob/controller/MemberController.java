@@ -7,7 +7,7 @@ import com.web.albajob.service.MemberService;
 
 @Controller
 public class MemberController {
-	
+
 	@Autowired
 	private MemberService memberService;
 }

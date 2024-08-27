@@ -9,7 +9,7 @@ import lombok.ToString;
 @Setter
 @ToString
 public class SPageMaker {
-	private SPagination pagination; // 페이징 처리 객체
+	private SPagination sPagination; // 페이징 처리 객체
 	private int totalCount; // 전체 게시글 수
 	private int pageCount; // 화면에 표시되는 페이지 번호 수
 	
@@ -21,13 +21,13 @@ public class SPageMaker {
 	private int calcTotalPageNum() {
 		// Math.ceil (올림)
 		// Math.floor (버림)		
-		return (int) Math.ceil((double) totalCount / pagination.getPageSize()); 
+		return (int) Math.ceil((double) totalCount / sPagination.getPageSize()); 
 		
 	} // end calcTotalPageNum()
 	
 	// 임시 끝 번호 계산값
 	private int tempEndNum() {
-		return (int) Math.ceil((double) pagination.getPageNum() / pageCount) * pageCount;
+		return (int) Math.ceil((double) sPagination.getPageNum() / pageCount) * pageCount;
 	} // end tempEndNum()
 	
 	// 시작 페이지 번호 계산

@@ -12,18 +12,18 @@ public class SPagination {
 	private int pageNum; // 현재 페이지 번호
 	private int pageSize; // 현재 페이지 사이즈
 	private String location; // 지역 키워드 검색
-	private String job; // 업종 키워드 검색
+	private String category; // 업종 키워드 검색
 
 	public SPagination() {
 		this.pageNum = 1; // 기본 페이지 번호 설정
 		this.pageSize = 5; // 기본 페이지 사이즈 설정
 	}
 
-	public SPagination(int page, int pageSize, String location, String job) {
+	public SPagination(int page, int pageSize, String location, String category) {
 		this.pageNum = page;
 		this.pageSize = pageSize;
 		this.location = location;
-		this.job = job;
+		this.category = category;
 	}
 
 	// 선택된 페이지의 시작 글 일련번호(rn) - #{start}

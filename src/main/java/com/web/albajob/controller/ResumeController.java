@@ -30,6 +30,4 @@ public class ResumeController {
 		model.addAttribute("resumeVO", resumeVO);
 	}
 	
-	
-	
 }
