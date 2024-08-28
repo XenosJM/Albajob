@@ -12,23 +12,24 @@ import com.web.albajob.service.CompanyMemberService;
 import lombok.extern.log4j.Log4j;
 
 @Controller
-@RequestMapping(value = "/member")
+@RequestMapping(value = "/companyMember")
 @Log4j
 public class CompanyMemberController {
 	
 	@Autowired
 	private CompanyMemberService companyMemberService;
 	
-	@GetMapping("/regist")
+	@GetMapping("/companyRegist")
 	public void companyRegistGet() {
 		log.info("joinGet()");
 	}	
-	@PostMapping("/regist")
+	
+	@PostMapping("/registerCompanyMember")
 	public String companyRegistPOST(CompanyMemberVO vo) {
 		log.info(vo);
-		int result = companyMemberService.insertMember(vo);
+		int result = companyMemberService.insertCompanymember(vo);
 		log.info(result+"행 삽입");
-		return "redirect:/auth/login";
+		return "redirect:/login";
 	}
 	
 	@GetMapping("/findByPhone")
@@ -51,14 +52,15 @@ public class CompanyMemberController {
 		return companyMemberService.findUserNameByMail(userMail);
 	}
 	
-	@GetMapping("/findByPW")
-	public void findByPWGet() {
-		log.info("findByPWGet()");
+	@GetMapping("/updatePW")
+	public void updatePWGET() {
+		log.info("updatePWCompany");
 	}
 	
-	@PostMapping("/findByPW")
-	public String findByPW(String userName) {
-		return companyMemberService.findUserPW(userName);
+	@PostMapping("/updatePW")
+	public String updatePW() {
+		
+		return "redirect:/login";
 	}
 	
 	@GetMapping("/companyUpdate")

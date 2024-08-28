@@ -1,5 +1,7 @@
 package com.web.albajob.service;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.web.albajob.domain.MemberVO;
@@ -10,9 +12,12 @@ public class MemberServiceImple implements MemberService{
 
 	MemberMapper memberMapper;
 	
+	private PasswordEncoder encoder = new BCryptPasswordEncoder();
+	
 	@Override
 	public int insertMember(MemberVO vo) {
-		
+		String encodedPassword = encoder.encode(vo.getUserPassword());
+		vo.setUserPassword(encodedPassword);
 		return memberMapper.insertMember(vo);
 	}
 
