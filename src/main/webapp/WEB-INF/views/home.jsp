@@ -4,6 +4,7 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <html>
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<!-- 메인페이지 css -->
 <link rel="stylesheet" href="resources/css/mainPage.css">
 </head>  
 	<body>
@@ -12,8 +13,10 @@
 		    <!-- 현재 상황으로선 정적으로 이루어진 상태 추후에는 js를 이용해 데이터 변경과 입력 및 삭제가 가능하도록 변경 해볼 것. -->
 			<section class="main">
 				<div class="container left">
-		           	<input class="input-box" type="text" size="20" maxlength="20" placeholder="검색어를 입력하세요...">
-		            <div class="dropdown-menu" id="dropdownMenu"></div>
+					<form action="search/searchList/" method="get">
+			           	<input class="input-box" id="searchKeyword" type="text" size="20" maxlength="20" placeholder="검색어를 입력하세요...">
+			            <div class="dropdown-menu" id="dropdownMenu"></div>
+					</form>
 		        </div>
 				<nav class="header-gnb-base">
 					<div class="left">
@@ -83,75 +86,75 @@
 				</div>
 			</section>
 		</header>
-		
-		<section class="container" id="vip">
-			<h2> VIP </h2>
-			<div class="job">
-				<h3>웹 개발자</h3>
-				<p>회사: ABC </p>
-				<p>위치: 서울</p>
-				<p>상세: 웹사이트 개발 및 유지	보수</p>
-				<button class="btn btn-secondary">지원하기</button>
-			</div>
-			<div class="job">
-				<h3>UX/UI 디자이너</h3>
-				<p>회사: XYZ </p><p>위치: 부산</p>
-				<p>상세: 사용자 경험 및 인터페이스 디자인</p>
-				<button class="btn btn-secondary">지원하기</button>
-			</div>
-		</section>
-		
-		<section class="container" id="platinum">
-			<h2> 플래티넘 </h2>
-			<div class="job">
-				<h3>웹 개발자</h3>
-				<p>회사: ABC </p>
-				<p>위치: 서울</p>
-				<p>상세: 웹사이트 개발 및 유지	보수</p>
-				<button class="btn btn-secondary">지원하기</button>
-			</div>
-			<div class="job">
-				<h3>UX/UI 디자이너</h3>
-				<p>회사: XYZ </p><p>위치: 부산</p>
-				<p>상세: 사용자 경험 및 인터페이스 디자인</p>
-				<button class="btn btn-secondary">지원하기</button>
-			</div>
-		</section>
-		
-		<section class="container" id="gold">
-			<h2> 골드 </h2>
-			<div class="job">
-				<h3>웹 개발자</h3>
-				<p>회사: ABC </p>
-				<p>위치: 서울</p>
-				<p>상세: 웹사이트 개발 및 유지	보수</p>
-				<button class="btn btn-secondary">지원하기</button>
-			</div>
-			<div class="job">
-				<h3>UX/UI 디자이너</h3>
-				<p>회사: XYZ </p><p>위치: 부산</p>
-				<p>상세: 사용자 경험 및 인터페이스 디자인</p>
-				<button class="btn btn-secondary">지원하기</button>
-			</div>
-		</section>
-		
-		<section class="container" id="silver">
-			<h2> 실버 </h2>
-			<div class="job">
-				<h3>웹 개발자</h3>
-				<p>회사: ABC </p>
-				<p>위치: 서울</p>
-				<p>상세: 웹사이트 개발 및 유지	보수</p>
-				<button class="btn btn-secondary">지원하기</button>
-			</div>
-			<div class="job">
-				<h3>UX/UI 디자이너</h3>
-				<p>회사: XYZ </p><p>위치: 부산</p>
-				<p>상세: 사용자 경험 및 인터페이스 디자인</p>
-				<button class="btn btn-secondary">지원하기</button>
-			</div>
-		</section>
-	
+		<div id="contents field">
+			<section class="container" id="vip">
+				<h2> VIP </h2>
+				<div class="job">
+					<h3>웹 개발자</h3>
+					<p>회사: ABC </p>
+					<p>위치: 서울</p>
+					<p>상세: 웹사이트 개발 및 유지	보수</p>
+					<button class="btn btn-secondary">지원하기</button>
+				</div>
+				<div class="job">
+					<h3>UX/UI 디자이너</h3>
+					<p>회사: XYZ </p><p>위치: 부산</p>
+					<p>상세: 사용자 경험 및 인터페이스 디자인</p>
+					<button class="btn btn-secondary">지원하기</button>
+				</div>
+			</section>
+			
+			<section class="container" id="platinum">
+				<h2> 플래티넘 </h2>
+				<div class="job">
+					<h3>웹 개발자</h3>
+					<p>회사: ABC </p>
+					<p>위치: 서울</p>
+					<p>상세: 웹사이트 개발 및 유지	보수</p>
+					<button class="btn btn-secondary">지원하기</button>
+				</div>
+				<div class="job">
+					<h3>UX/UI 디자이너</h3>
+					<p>회사: XYZ </p><p>위치: 부산</p>
+					<p>상세: 사용자 경험 및 인터페이스 디자인</p>
+					<button class="btn btn-secondary">지원하기</button>
+				</div>
+			</section>
+			
+			<section class="container" id="gold">
+				<h2> 골드 </h2>
+				<div class="job">
+					<h3>웹 개발자</h3>
+					<p>회사: ABC </p>
+					<p>위치: 서울</p>
+					<p>상세: 웹사이트 개발 및 유지	보수</p>
+					<button class="btn btn-secondary">지원하기</button>
+				</div>
+				<div class="job">
+					<h3>UX/UI 디자이너</h3>
+					<p>회사: XYZ </p><p>위치: 부산</p>
+					<p>상세: 사용자 경험 및 인터페이스 디자인</p>
+					<button class="btn btn-secondary">지원하기</button>
+				</div>
+			</section>
+			
+			<section class="container" id="silver">
+				<h2> 실버 </h2>
+				<div class="job">
+					<h3>웹 개발자</h3>
+					<p>회사: ABC </p>
+					<p>위치: 서울</p>
+					<p>상세: 웹사이트 개발 및 유지	보수</p>
+					<button class="btn btn-secondary">지원하기</button>
+				</div>
+				<div class="job">
+					<h3>UX/UI 디자이너</h3>
+					<p>회사: XYZ </p><p>위치: 부산</p>
+					<p>상세: 사용자 경험 및 인터페이스 디자인</p>
+					<button class="btn btn-secondary">지원하기</button>
+				</div>
+			</section>
+		</div>
 		<footer class="bg-light text-center py-2">
 			<p>© 2023 구인/구직 사이트. 목쌤이 모든 권리 보유.</p>
 		</footer>
@@ -159,7 +162,7 @@
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-		
+		<!--  메인페이지 js 코드 -->
 		<script src="resources/javascript/mainPage.js"></script>
 	</body>
 </html>

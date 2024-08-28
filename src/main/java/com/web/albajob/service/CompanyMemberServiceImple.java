@@ -25,7 +25,7 @@ public class CompanyMemberServiceImple implements CompanyMemberService {
 		log.info(vo);
 		String encodedPassword = encoder.encode(vo.getUserPassword());
 		vo.setUserPassword(encodedPassword);
-		return companyMemberMapper.insertCompanymember(vo);
+		return companyMemberMapper.insertMember(vo);
 	}
 
 	@Override
