@@ -4,105 +4,7 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <html>
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-<style>
-	.main {
-		background-color: #f8f9fa;
-		padding: 10px 0;
-		text-align: center;
-	}
-	
-	.job {
-		border: 1px solid #ddd;
-		border-radius: 5px;
-		padding: 20px;
-		margin: 20px 0;
-	}
-	
-	.right {
-		text-align: right;
-	}
-	
-	.left {
-		text-align: left;
-	}
-	
-	.dropdown-menu {
-        max-height: 200px;
-        overflow-y: auto;
-    } /* 검색창 css */
-    
-    .input-box {
-	    width: 100%;
-	    max-width: 500px; /* 최대 너비 설정 */
-	    height: 40px;
-	}
-	
-	/* GNB 기본 스타일 */
-	.header-gnb-base {
-	    background-color: white;
-	    padding: 10px;
-	}
-	
-	/* 메뉴 리스트 스타일 */
-	.header-gnb-base_menu {
-	    list-style-type: none;
-	    margin: 0;
-	    padding: 0;
-	    display: flex;
-	}
-	
-	/* 개별 메뉴 아이템 스타일 */
-	.header-gnb-base_menu .menu-item {
-	    margin-right: 20px;
-	}
-	
-	/* 링크 스타일 */
-	.header-gnb-base_menu .menu-item a {
-	    text-decoration: none;
-	    color: black;
-	    padding: 10px;
-	    display: block;
-	}
-
-	/* 메뉴 아이템에 마우스를 올렸을 때 */
-	.header-gnb-base_menu .menu-item a:hover {
-	    background-color: orange;	
-	}
-	
-	.menu-item {
-	  position: relative;
-	  margin-right: 1rem;
-	  color: white;
-	  cursor: pointer;
-	}
-	
-	.menu-item .dropdown-menu {
-	  display: none;
-	  position: absolute;
-	  top: 100%;
-	  left: 0;
-	  background-color: white;
-	  padding: 0.5rem;
-	  min-width: 150px;
-	  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-	}
-	
-	.menu-item .dropdown-menu a {
-	  color: black;
-	  text-decoration: none;
-	  display: block;
-	  padding: 0.5rem;
-	}
-	
-	.menu-item .dropdown-menu a:hover {
-	  background-color: orange;
-	}
-	
-	.menu-item:hover .dropdown-menu {
-	  display: block;
-	}
-    
-	</style>  
+<link rel="stylesheet" href="resources/css/mainPage.css">
 </head>  
 	<body>
 		<header class="bg-primary text-white text-center py-1">
@@ -258,33 +160,6 @@
 		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 		
-		<script type="text/javascript">
-		$(function(){
-			
-			/* const token = $("meta[name='_csrf']").attr("content");
-        	const header = $("meta[name='_csrf_header']").attr("content");
-        	const name = $("#userName").val();
-        	
-        	$.ajaxSetup({
-                beforeSend: function(xhr) {
-                    xhr.setRequestHeader(header, token);
-                }
-            }); */
-            
-            $(document).on('click', '#memberLogin', function () {
-                window.location.href = "login";
-            });
-            
-		 	$(document).on('click', '#memberRegist', function () {
-                window.location.href = "regist";
-            });
-		 	
-		 	$(document).on('mouseover', '#additional-nav', function(){
-		 		
-		 	});
-		 	
-		 	
-		})
-		</script>
+		<script src="resources/javascript/mainPage.js"></script>
 	</body>
 </html>
