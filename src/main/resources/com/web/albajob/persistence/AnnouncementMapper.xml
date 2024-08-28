@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.web.albajob.persistence.AnnouncementMapper">
+	
+	<resultMap type="com.web.albajob.domain.AnnouncementVO" id="announcementResultMap">
+		<id property="" column="" />
+		<result property="" column="" />
+	</resultMap>
+	
+	<select id="selectAnnouncement" resultMap="announcementResultMap">
+		SELECT * FROM ANNOUNCEMENT
+	</select>
+	
+</mapper>
