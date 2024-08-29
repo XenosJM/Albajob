@@ -40,12 +40,11 @@ public class UtilController {
 	@Autowired
 	UtilService utilService;	
 	
-<<<<<<< Updated upstream
-=======
+
 	@Autowired
 	CompanyMemberService companyMemberService;
 	
->>>>>>> Stashed changes
+
 	@GetMapping("/authCodeSend")
 	public ResponseEntity<Map<String, Integer>> AuthCodeSend(@RequestParam("userMail") String userMail) {
 		int result = 0;
