@@ -2,8 +2,9 @@ package com.web.albajob.service;
 
 import java.util.List;
 
-import org.springframework.stereotype.Service;
 
+import org.springframework.stereotype.Service;
+import com.web.albajob.domain.CompanyMemberVO;
 import com.web.albajob.domain.MemberVO;
 
 public interface MemberService {
@@ -20,4 +21,8 @@ public interface MemberService {
 	int deleteMember(int userId);
 	
 	List<MemberVO> getAllMember(String userName);
+	
+	int memberCheck(String userName, String userPW);
+	
+	String updatePW(MemberVO vo);
 }

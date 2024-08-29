@@ -14,5 +14,9 @@ public interface MemberMapper{
 	String findUserPW(String userName);
 	int updateMember(MemberVO vo);
 	int deleteMember(int userId);
-	List<MemberVO> selectByResume(String userName); // 우제여 제작
+	List<MemberVO> selectByResume(String userName); // 우제영 제작
+	String checkId(String memberId);
+	String checkEmail(String memberEmail);
+	MemberVO memberCheck(String userName);
+	String updatePW(MemberVO vo);
 }

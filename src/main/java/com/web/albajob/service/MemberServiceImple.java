@@ -6,6 +6,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.web.albajob.domain.CompanyMemberVO;
 import com.web.albajob.domain.MemberVO;
 import com.web.albajob.persistence.MemberMapper;
 
@@ -63,6 +64,24 @@ public class MemberServiceImple implements MemberService{
 		List<MemberVO> memberVO = memberMapper.selectByResume(userName);
 		log.info("memberVO : " + memberVO);
 		return memberVO;
+	}
+
+	@Override
+	public int memberCheck(String userName, String userPW) {
+		MemberVO vo = memberMapper.memberCheck(userName);
+		if(vo != null&&encoder.matches(vo.getUserPassword(), userPW)) {
+			return 1;
+		}else {
+			return 0;
+			
+		}		
+	}
+	
+	@Override
+	public String updatePW(MemberVO vo) {
+		String encodedPW = encoder.encode(vo.getUserPassword());
+		vo.setUserPassword(encodedPW);
+		return memberMapper.updatePW(vo);
 	}
 
 }
