@@ -3,8 +3,8 @@ package com.web.albajob.service;
 public interface UtilService {
 	
 	// ȸ�����Խ� ���̵� �ߺ� üũ
-	String checkId(String memberId);
+	String companyCheckId(String memberId);
 	// ���� üũ
-	String checkEmail(String memberEmail);
+	String companyCheckMail(String memberEmail);
 	
 }

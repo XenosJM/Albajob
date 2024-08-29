@@ -71,6 +71,20 @@ public class CompanyMemberServiceImple implements CompanyMemberService {
 			
 		}		
 	}
+
+	@Override
+	public String checkId(String memberId) {
+		log.info("checkId");
+		return companyMemberMapper.checkId(memberId);
+	}
+
+	@Override
+	public String chekcEmail(String memberEmail) {
+		log.info("checkEmail");
+		return companyMemberMapper.checkEmail(memberEmail);
+	}
+	
+	
 	
 	
 
