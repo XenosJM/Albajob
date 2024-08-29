@@ -20,7 +20,8 @@
 		</tr>
 	</thead>
 	</table>
-	
+	<form action=""></form>
+	<button>이력서 등록</button>
 
 	<script type="text/javascript">
 		let userName; // 나중에 시큐리티 적용시 세션 정보 가져오게 수정
@@ -41,7 +42,10 @@
 
 						for (let i = 0; i < data.length; i++) {
 							form += "<li>" +
-							"<tb>'#'</td>"
+							"<tb>" + ${resumeVO.resumeTitle} + "</td>" +
+							"<tb>" + ${resumeVO.resumeDateCreate} + "</td>" + 
+							"<button>수정</button>"+ 
+							"<button>삭제</button>"+ 
 							"</li>"
 						}
 					}
