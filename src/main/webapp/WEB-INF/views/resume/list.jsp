@@ -24,8 +24,7 @@
 		</tr>
 	</thead>
 	</table>
-	<form action=""></form>
-	<button>이력서 등록</button>
+	<button onclick="location.href='../resume/detail?userName=${userName}'">이력서 등록</button>
 
 	<script type="text/javascript">
 		let userName = "${userName}"; // 나중에 시큐리티 적용시 세션 정보 가져오게 수정

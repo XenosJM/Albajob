@@ -17,7 +17,6 @@ public abstract class UtilServiceImple implements UtilService {
 	private CompanyMemberMapper companyMemberMapper;
 	
 	
-	
 	@Override
 	public String checkId(String memberId) {
 		log.info("checkId()");

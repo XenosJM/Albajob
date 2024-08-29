@@ -1,6 +1,7 @@
 package com.web.albajob.controller;
 
 import java.util.HashMap;
+
 import java.util.Map;
 
 import javax.mail.MessagingException;

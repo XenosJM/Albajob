@@ -34,7 +34,6 @@ public class UtilController {
 	UtilService utilService;
 
 	
-	
 	@GetMapping("/authCodeSend")
 	public ResponseEntity<Map<String, Integer>> AuthCodeSend(@RequestParam("memberEmail") String memberEmail) {
 		int result = 0;

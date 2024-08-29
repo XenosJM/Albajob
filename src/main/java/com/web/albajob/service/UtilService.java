@@ -7,5 +7,4 @@ public interface UtilService {
 	// ���� üũ
 	String checkEmail(String memberEmail);
 	
-	
 }

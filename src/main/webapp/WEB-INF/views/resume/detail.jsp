@@ -7,9 +7,12 @@
 <title>이력서 작성 페이지</title>
 </head>
 <body>
-
+	
+	
 	<script type="text/javascript">
+	$(document).ready(function() {
 		
+	});// end document
 	
 	</script>
 
