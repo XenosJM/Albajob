@@ -11,12 +11,10 @@ import lombok.extern.log4j.Log4j;
 
 @Service
 @Log4j
-public abstract class UtilServiceImple implements UtilService {
+public class UtilServiceImple implements UtilService {
 	
 	@Autowired
-	private CompanyMemberMapper companyMemberMapper;
-	
-	
+	private CompanyMemberMapper companyMemberMapper;	
 	
 	@Override
 	public String checkId(String memberId) {
