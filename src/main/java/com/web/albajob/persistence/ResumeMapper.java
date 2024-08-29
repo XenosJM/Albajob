@@ -1,3 +1,4 @@
+
 package com.web.albajob.persistence;
 
 import java.util.List;
@@ -25,3 +26,4 @@ public interface ResumeMapper {
 	// 이력서 삭제
 	int deleteResume(@Param("userName")String userName, @Param("resumeId")int resumeId);
 }
+

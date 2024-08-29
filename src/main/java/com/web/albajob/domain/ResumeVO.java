@@ -13,7 +13,7 @@ import lombok.ToString;
 @AllArgsConstructor
 public class ResumeVO {
 	private int resumeId;
-	private int userName;
+	private String userName;
 	private String resumeTitle;
 	private String education;
 	private String educationForm;

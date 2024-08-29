@@ -15,8 +15,9 @@ import lombok.extern.log4j.Log4j;
 public class SearchController {
 	
 	@GetMapping("/searchList")
-	public void searchList(Model model, SPagination sPagination) {
+	public void searchList(Model model, SPagination sPagination, String keyword) {
 		log.info("searchList()");
+		
 	}
 	
 }

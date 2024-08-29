@@ -20,8 +20,22 @@ public class ResumeServiceImple implements ResumeService{
 	@Override
 	public int createResume(ResumeVO resumeVO) {
 		log.info("createResume()");
-		int insertRes = ResumeMapper.insertResume(resumeVO);
-		return insertRes;
+		int resumeId = resumeVO.getResumeId();
+		String userName = resumeVO.getUserName();
+		List<ResumeVO> vo = ResumeMapper.selectByResumeUserId(userName, resumeId);
+		log.info("ResumeVO : " + vo);
+		
+		int result;
+		
+		if(vo == null) {
+			result = ResumeMapper.insertResume(resumeVO);
+			log.info(result + "행 등록");
+		} else {
+			result = ResumeMapper.updateInquiry(resumeVO);
+			log.info(result + "행 수정");
+		}
+		
+		return result;
 	}
 
 	@Override

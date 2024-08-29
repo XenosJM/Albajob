@@ -1,18 +1,28 @@
 package com.web.albajob.service;
 
+import java.util.List;
+
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.web.albajob.domain.MemberVO;
 import com.web.albajob.persistence.MemberMapper;
 
+import lombok.extern.log4j.Log4j;
+
 @Service
+@Log4j
 public class MemberServiceImple implements MemberService{
 
 	MemberMapper memberMapper;
 	
+	private PasswordEncoder encoder = new BCryptPasswordEncoder();
+	
 	@Override
 	public int insertMember(MemberVO vo) {
-		
+		String encodedPassword = encoder.encode(vo.getUserPassword());
+		vo.setUserPassword(encodedPassword);
 		return memberMapper.insertMember(vo);
 	}
 
@@ -44,6 +54,15 @@ public class MemberServiceImple implements MemberService{
 	public int deleteMember(int userId) {
 
 		return memberMapper.deleteMember(userId);
+	}
+	
+	// userName의로 회원 모든 정보 검색(우제영)
+	@Override
+	public List<MemberVO> getAllMember(String userName) {
+		log.info("getAllMember()");
+		List<MemberVO> memberVO = memberMapper.selectByResume(userName);
+		log.info("memberVO : " + memberVO);
+		return memberVO;
 	}
 
 }

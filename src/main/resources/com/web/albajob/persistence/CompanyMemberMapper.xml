@@ -3,65 +3,81 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.web.albajob.persistence.CompanyMemberMapper">
+<mapper
+	namespace="com.web.albajob.persistence.CompanyMemberMapper">
 
-	<resultMap type="com.web.albajob.domain.CompanyMemberVO" id="CompanyMemberResultMap">
+	<resultMap type="com.web.albajob.domain.CompanyMemberVO"
+		id="CompanyMemberResultMap">
 		<id property="userId" column="USER_ID" />
 		<result property="userName" column="USER_NAME" />
 		<result property="userPassword" column="USER_PASSWORD" />
 		<result property="userPhone" column="USER_PHONE" />
 		<result property="userMail" column="USER_MAIL" />
-		<result property="companyNumber" column="COMPANY_NUMBER"/>
-		<result property="companyName" column="COMPANY_NAME"/>
+		<result property="companyNumber" column="COMPANY_NUMBER" />
+		<result property="companyName" column="COMPANY_NAME" />
 		<result property="path" column="PATH" />
-		<result property="membership" column="MEMBERSHIP"/>
+		<result property="membership" column="MEMBERSHIP" />
 	</resultMap>
 
-    <!-- INSERT 문 -->
-    <insert id="insertMember" parameterType="com.web.albajob.domain.CompanyMemberVO">
-        INSERT INTO CompanyMembers (USER_NAME, USER_PASSWORD, USER_PHONE, USER_MAIL, COMPANY_NUMBER, COMPANY_NAME, PATH, MEMBERSHIP)
-        VALUES (#{userName}, #{userPassword}, #{userPhone}, #{userMail}, #{companyNumber}, #{companyName}, #{path}, #{membership})
-    </insert>
+	<!-- INSERT 문 -->
+	<insert id="insertCompanymember"
+		parameterType="com.web.albajob.domain.CompanyMemberVO">
+		INSERT INTO CompanyMember (USER_NAME, USER_PASSWORD, USER_PHONE, USER_MAIL,
+		COMPANY_NUMBER, COMPANY_NAME, PATH, MEMBERSHIP)
+		VALUES (#{userName}, #{userPassword}, #{userPhone}, #{userMail},
+		#{companyNumber}, #{companyName}, #{path}, #{membership})
+	</insert>
 
-    <!-- USER_PHONE을 기준으로 USER_NAME 찾기 -->
-    <select id="findUserNameByPhone" parameterType="int" resultType="string">
-        SELECT USER_NAME
-        FROM CompanyMembers
-        WHERE USER_PHONE = #{userPhone}
-    </select>
+	<!-- USER_PHONE을 기준으로 USER_NAME 찾기 -->
+	<select id="findUserNameByPhone" parameterType="int"
+		resultType="string">
+		SELECT USER_NAME
+		FROM CompanyMember
+		WHERE USER_PHONE = #{userPhone}
+	</select>
 
-    <!-- USER_MAIL을 기준으로 USER_NAME 찾기 -->
-    <select id="findUserNameByMail" parameterType="string" resultType="string">
-        SELECT USER_NAME
-        FROM CompanyMembers
-        WHERE USER_MAIL = #{userMail}
-    </select>
+	<!-- USER_MAIL을 기준으로 USER_NAME 찾기 -->
+	<select id="findUserNameByMail" parameterType="string"
+		resultType="string">
+		SELECT USER_NAME
+		FROM CompanyMember
+		WHERE USER_MAIL = #{userMail}
+	</select>
 
-    <!-- USER_NAME을 기준으로 USER_PASSWORD 찾기 -->
-    <select id="findUserPW" parameterType="string" resultType="string">
-        SELECT USER_PASSWORD
-        FROM CompanyMembers
-        WHERE USER_NAME = #{userName}
-    </select>
 
-    <!-- UPDATE 문 -->
-    <update id="updateMember" parameterType="com.web.albajob.domain.CompanyMemberVO">
-        UPDATE CompanyMembers
-        SET 
-            USER_NAME = #{userName},
-            USER_PASSWORD = #{userPassword},
-            USER_PHONE = #{userPhone},
-            USER_MAIL = #{userMail},
-            COMPANY_NUMBER = #{companyNumber},
-            COMPANY_NAME = #{companyName},
-            PATH = #{path},
-            MEMBERSHIP = #{membership}
-        WHERE USER_ID = #{userId}
-    </update>
 
-    <!-- DELETE 문 -->
-    <delete id="deleteMember" parameterType="int">
-        DELETE FROM CompanyMembers WHERE USER_ID = #{userId}
-    </delete>
+	<!-- UPDATE 문 -->
+	<update id="updateMember"
+		parameterType="com.web.albajob.domain.CompanyMemberVO">
+		UPDATE CompanyMember
+		SET
+		USER_NAME = #{userName},
+		USER_PASSWORD = #{userPassword},
+		USER_PHONE = #{userPhone},
+		USER_MAIL = #{userMail},
+		COMPANY_NUMBER = #{companyNumber},
+		COMPANY_NAME = #{companyName},
+		PATH = #{path},
+		MEMBERSHIP = #{membership}
+		WHERE USER_ID = #{userId}
+	</update>
+
+	<!-- UPDATE 문 -->
+	<update id="updatePW"
+		parameterType="com.web.albajob.domain.CompanyMemberVO">
+		UPDATE CompanyMember
+		SET
+		USER_PASSWORD = #{userPassword}
+		WHERE USER_ID = #{userId}
+	</update>
+
+	<select id="memberCheck" resultMap="ComapnyMemberResultMap">
+		SELECT USER_PASSWORD, USER_NAME FROM CompanyMember WHERE USER_NAME = #{userName}
+	</select>
+
+	<!-- DELETE 문 -->
+	<delete id="deleteMember" parameterType="int">
+		DELETE FROM CompanyMember WHERE USER_ID = #{userId}
+	</delete>
 
 </mapper>

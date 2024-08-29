@@ -1,17 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>이력서 작성 페이지</title>
+<title>공고등록 - 공고등록상품</title>
 </head>
 <body>
 
 	<script type="text/javascript">
-		
 	
 	</script>
-
+	
 </body>
 </html>
