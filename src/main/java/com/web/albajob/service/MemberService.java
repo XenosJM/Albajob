@@ -1,7 +1,6 @@
 package com.web.albajob.service;
 
-import org.springframework.stereotype.Service;
-
+import com.web.albajob.domain.CompanyMemberVO;
 import com.web.albajob.domain.MemberVO;
 
 public interface MemberService {
@@ -16,4 +15,8 @@ public interface MemberService {
 	int updateMember(MemberVO vo);
 
 	int deleteMember(int userId);
+	
+	int memberCheck(String userName, String userPW);
+	
+	String updatePW(MemberVO vo);
 }

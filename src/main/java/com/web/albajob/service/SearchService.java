@@ -1,5 +1,7 @@
 package com.web.albajob.service;
 
+import java.util.List;
+
 import com.web.albajob.domain.SearchDTO;
 
 public interface SearchService {

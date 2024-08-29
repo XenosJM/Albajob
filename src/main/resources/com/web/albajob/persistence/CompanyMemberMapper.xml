@@ -22,7 +22,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- INSERT 문 -->
 	<insert id="insertCompanymember"
 		parameterType="com.web.albajob.domain.CompanyMemberVO">
-		INSERT INTO CompanyMember (USER_NAME, USER_PASSWORD, USER_PHONE, USER_MAIL,
+		INSERT INTO CompanyMember (USER_NAME, USER_PASSWORD,
+		USER_PHONE, USER_MAIL,
 		COMPANY_NUMBER, COMPANY_NAME, PATH, MEMBERSHIP)
 		VALUES (#{userName}, #{userPassword}, #{userPhone}, #{userMail},
 		#{companyNumber}, #{companyName}, #{path}, #{membership})
@@ -33,7 +34,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		resultType="string">
 		SELECT USER_NAME
 		FROM CompanyMember
-		WHERE USER_PHONE = #{userPhone}
+		WHERE USER_PHONE =
+		#{userPhone}
 	</select>
 
 	<!-- USER_MAIL을 기준으로 USER_NAME 찾기 -->
@@ -41,7 +43,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		resultType="string">
 		SELECT USER_NAME
 		FROM CompanyMember
-		WHERE USER_MAIL = #{userMail}
+		WHERE USER_MAIL =
+		#{userMail}
 	</select>
 
 
@@ -54,12 +57,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		USER_NAME = #{userName},
 		USER_PASSWORD = #{userPassword},
 		USER_PHONE = #{userPhone},
-		USER_MAIL = #{userMail},
+		USER_MAIL =
+		#{userMail},
 		COMPANY_NUMBER = #{companyNumber},
-		COMPANY_NAME = #{companyName},
+		COMPANY_NAME =
+		#{companyName},
 		PATH = #{path},
 		MEMBERSHIP = #{membership}
-		WHERE USER_ID = #{userId}
+		WHERE USER_ID
+		= #{userId}
 	</update>
 
 	<!-- UPDATE 문 -->
@@ -72,12 +78,25 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 
 	<select id="memberCheck" resultMap="ComapnyMemberResultMap">
-		SELECT USER_PASSWORD, USER_NAME FROM CompanyMember WHERE USER_NAME = #{userName}
+		SELECT USER_PASSWORD,
+		USER_NAME FROM CompanyMember WHERE USER_NAME = #{userName}
 	</select>
 
 	<!-- DELETE 문 -->
 	<delete id="deleteMember" parameterType="int">
-		DELETE FROM CompanyMember WHERE USER_ID = #{userId}
+		DELETE FROM
+		CompanyMember WHERE USER_ID = #{userId}
 	</delete>
 
+
+	<!-- 체크 아이디 -->
+	<select id="checkId" resultType="String"> 
+		SELECT USER_NAME 
+		FROM CompanyMember
+		WHERE USER_NAME = #{userName} </select>
+	<!-- 체크 이메일 -->
+	<select id="checkEmail" resultType="String"> 
+		SELECT USER_NAME 
+		FROM CompanyMember
+		WHERE USER_MAIL = #{userMail} </select>
 </mapper>

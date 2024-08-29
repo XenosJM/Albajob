@@ -14,4 +14,6 @@ public interface CompanyMemberMapper{
 	int updateMember(CompanyMemberVO vo);
 	int deleteMember(int userId);
 	CompanyMemberVO memberCheck(String userName);
+	String checkId(String memberId);
+	String checkEmail(String memberEmail);
 }
