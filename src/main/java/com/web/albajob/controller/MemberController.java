@@ -105,7 +105,7 @@ public class MemberController {
 	        return "redirect:/";
 	    } else {
 	        log.info("Login failed. Redirecting to login page.");
-	        return "redirect:/companyMember/login";
+	        return "redirect:/member/login";
 	    }
 	}
 }
