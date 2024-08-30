@@ -62,6 +62,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE USER_NAME = #{userName}
 	</select>
 	
+	<select id="memberCheck" resultMap="memberResultMap">
+		SELECT USER_PASSWORD,
+		USER_NAME FROM Member WHERE USER_NAME = #{userName}
+	</select>
+	
 	<!-- userName로 회원 정보 전부 가져오기 (우제영 제작) -->
 	<select id="selectByResume" resultMap="memberResultMap">
 		SELECT * FROM Member

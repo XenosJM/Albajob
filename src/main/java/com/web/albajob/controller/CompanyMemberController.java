@@ -6,6 +6,7 @@ import java.util.Map;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,7 +46,7 @@ public class CompanyMemberController {
 		log.info(vo);
 		int result = companyMemberService.insertCompanymember(vo);
 		log.info(result + "행 삽입");
-		return "redirect:/login";
+		return "redirect:/companyMember/login";
 	}
 
 	@GetMapping("/findByPhone")
@@ -99,21 +100,29 @@ public class CompanyMemberController {
 		return "redirect:/login";
 	}
 
-	@GetMapping("/companyMemberCheck")
+	@GetMapping("/login")
 	public void memberCheckGet() {
 		log.info("membercheck get");
 	}
 
 	@PostMapping("/companyMemberCheck")
-	public int memberCheck(CompanyMemberVO vo, HttpSession session) {
-		int result = companyMemberService.memberCheck(vo.getUserName(), vo.getUserPassword());
-		if (result == 1) {
-			session.setAttribute("userName", vo.getUserName());
-			return 1;
-		} else {
-			return 0;
-		}
+	public String memberCheck(HttpSession session, String userName, String userPassword) {
+	    log.info("Username: " + userName);
+	    log.info("UserPassword: " + userPassword);
+	    
+	    int result = companyMemberService.memberCheck(userName, userPassword);
+	    log.info("Result: " + result);
+	    
+	    if (result == 1) {
+	        session.setAttribute("userName", userName);
+	        log.info("Session attribute 'userName' set to: " + session.getAttribute("userName"));
+	        return "redirect:/";
+	    } else {
+	        log.info("Login failed. Redirecting to login page.");
+	        return "redirect:/companyMember/login";
+	    }
 	}
+
 
 	
 }
