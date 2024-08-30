@@ -11,6 +11,7 @@ import lombok.ToString;
 @ToString
 public class AnnouncementVO {
 	private int announcementId; // (PK)
+	private String announcementName; // 공고 이름
 	private int pay; // 급여
 	private String jobName; // 업직종 (FK)
 	private String workPeriod; // 근무기간

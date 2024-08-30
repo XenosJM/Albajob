@@ -25,9 +25,9 @@ public class AnnouncementServiceImple implements AnnouncementService {
 	}
 
 	@Override
-	public List<AnnouncementVO> findAll() {
+	public List<AnnouncementVO> findAll(String userName) {
 		log.info("findAll()");
-		return announcementMapper.selectAll();
+		return announcementMapper.selectAll(userName);
 	}
 	
 	@Override
