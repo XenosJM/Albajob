@@ -71,9 +71,11 @@ public class MemberServiceImple implements MemberService{
 	}
 
 	@Override
-	public int memberCheck(String userName, String userPW) {
+	public int memberCheck(String userName,String userPW) {
+	
 		MemberVO vo = memberMapper.memberCheck(userName);
-		if(vo != null&&encoder.matches(vo.getUserPassword(), userPW)) {
+		
+		if(vo != null&&encoder.matches(userPW,vo.getUserPassword())) {
 			return 1;
 		}else {
 			return 0;
