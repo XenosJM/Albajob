@@ -51,7 +51,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    </delete>
    
    <!-- 회원의 모든 이력서 가져오기 -->
-   <select id="selectByResumeTitle" resultMap="reviewResultMap">
+   <select id="selectByResumeTitle" resultMap="resumeResultMap">
    		SELECT RESUME_TITLE, RESUME_DATE_CREATED 
 		FROM RESUME
 		WHERE USER_NAME = #{userName};

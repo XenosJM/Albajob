@@ -2,6 +2,7 @@ package com.web.albajob.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,7 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 public class MemberServiceImple implements MemberService{
 
+	@Autowired
 	MemberMapper memberMapper;
 	
 	private PasswordEncoder encoder = new BCryptPasswordEncoder();
@@ -24,7 +26,9 @@ public class MemberServiceImple implements MemberService{
 	public int insertMember(MemberVO vo) {
 		String encodedPassword = encoder.encode(vo.getUserPassword());
 		vo.setUserPassword(encodedPassword);
-		return memberMapper.insertMember(vo);
+		log.info(vo);
+		int result = memberMapper.insertMember(vo); 
+		return result;
 	}
 
 	@Override
@@ -67,9 +71,11 @@ public class MemberServiceImple implements MemberService{
 	}
 
 	@Override
-	public int memberCheck(String userName, String userPW) {
+	public int memberCheck(String userName,String userPW) {
+	
 		MemberVO vo = memberMapper.memberCheck(userName);
-		if(vo != null&&encoder.matches(vo.getUserPassword(), userPW)) {
+		
+		if(vo != null&&encoder.matches(userPW,vo.getUserPassword())) {
 			return 1;
 		}else {
 			return 0;

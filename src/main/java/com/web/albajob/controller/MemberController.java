@@ -32,7 +32,7 @@ public class MemberController {
 		log.info(vo);
 		int result = MemberService.insertMember(vo);
 		log.info(result + "행 삽입");
-		return "redirect:/login";
+		return "redirect:/member/login";
 	}
 
 	@GetMapping("/findByPhone")
@@ -86,19 +86,26 @@ public class MemberController {
 		return "redirect:/login";
 	}
 
-	@GetMapping("/MemberCheck")
+	@GetMapping("/login")
 	public void memberCheckGet() {
 		log.info("membercheck get");
 	}
 
-	@PostMapping("/MemberCheck")
-	public int memberCheck(CompanyMemberVO vo, HttpSession session) {
-		int result = MemberService.memberCheck(vo.getUserName(), vo.getUserPassword());
-		if (result == 1) {
-			session.setAttribute("userName", vo.getUserName());
-			return 1;
-		} else {
-			return 0;
-		}
+	@PostMapping("/memberCheck")
+	public String memberCheck(HttpSession session, String userName, String userPassword) {
+	    log.info("Username: " + userName);
+	    log.info("UserPassword: " + userPassword);
+	    
+	    int result = MemberService.memberCheck(userName, userPassword);
+	    log.info("Result: " + result);
+	    
+	    if (result == 1) {
+	        session.setAttribute("userName", userName);
+	        log.info("Session attribute 'userName' set to: " + session.getAttribute("userName"));
+	        return "redirect:/";
+	    } else {
+	        log.info("Login failed. Redirecting to login page.");
+	        return "redirect:/member/login";
+	    }
 	}
 }
