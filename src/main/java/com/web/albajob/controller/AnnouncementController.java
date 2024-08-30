@@ -12,14 +12,21 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 public class AnnouncementController {
 	
-	@GetMapping("/estimate")
-	public String estimateGet() {
-		log.info("estimateGET");
-		return "announcement/estimate";
+	@GetMapping("insert")
+	public String announcementInsertGET() {
+		log.info("insertGET()");
+		return "announcement/insert";
 	}
 	
-	@PostMapping("/estimage")
-	public void estimatePost() {
-		log.info("");
+	@PostMapping("insert")
+	public String announcementInsertPOST() {
+		log.info("insertPOST()");
+		return "redirect:/announcement/list";
+	}
+	
+	@GetMapping("list")
+	public String announcementList() {
+		log.info("listGET()");
+		return "announcement/list";
 	}
 }
