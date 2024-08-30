@@ -7,7 +7,7 @@
 <title>공고 세부사항</title>
 </head>
 <body>
-	<form id="insertAnnouncement">
+	<form id="detailAnnouncement">
 		공고 이름 : <input type="text" name="announcementName" value="${announcementVO.announcementName }">
 		급여 : <input type="text" name="pay" value="${announcementVO.pay }">
 		업직종 : <input type="text" name="jobName" value="${announcementVO.jobName }">

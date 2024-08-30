@@ -39,8 +39,8 @@ public class AnnouncementController {
 	@GetMapping("list")
 	public void announcementList(Model model, String userName) {
 		log.info("listGET()");
-		List<AnnouncementVO> announcementVO = announcementService.findAll(userName);
-		model.addAttribute("announcementVO", announcementVO);
+		List<AnnouncementVO> announcementList = announcementService.findAll(userName);
+		model.addAttribute("announcementList", announcementList);
 	}
 	
 	@GetMapping("detail")
