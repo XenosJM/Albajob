@@ -47,9 +47,11 @@ public class ResumeController {
 		List<MemberVO> userVO = memberService.getAllMember(userName);
 		model.addAttribute("vo", vo);
 		model.addAttribute("userVO", userVO);
+		
 	}
 	
-	@PostMapping
+	
+	@PostMapping("/input")
 	public int createResume(Model model, ResumeVO resumeVO) {
 		log.info("createResume()");
 		

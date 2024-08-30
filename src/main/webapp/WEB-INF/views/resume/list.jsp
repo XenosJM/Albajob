@@ -25,12 +25,13 @@
 	</thead>
 	</table>
 	<button onclick="location.href='../resume/detail?userName=${userName}'">이력서 등록</button>
-
+	
+	<div id="resume"></div>
 	<script type="text/javascript">
 		let userName = "${userName}"; // 나중에 시큐리티 적용시 세션 정보 가져오게 수정
 
 		$(document).ready(function() {
-			reviewMap.show();// 비동기로 이력서 전부 불려오기
+			resumeMap.show();// 비동기로 이력서 전부 불려오기
 			
 			resumeMap.show = function() {
 				console.log("userName : " + userName);
@@ -54,7 +55,7 @@
 						        `<button class='btn btn-delete' data-productid='${data[i].resumeId}'>삭제</button>` +
 						        "</li>";
 						}
-
+						$('#resume').html(form);
 					}
 				});// end ajax
 			}// end resumeMap()
