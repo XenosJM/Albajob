@@ -17,5 +17,9 @@ public interface CompanyMemberService {
 	int deleteMember(int userId);
 	
 	int memberCheck(String userName, String userPW);
+	
+	String checkId(String memberId);
+	
+	String chekcEmail(String memberEmail);
 
 }

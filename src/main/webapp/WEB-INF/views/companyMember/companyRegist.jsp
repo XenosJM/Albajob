@@ -69,8 +69,8 @@
 <body>
 
 <div class="form-container">
-    <h2>회원 가입</h2>
-    <form action="registerMember" method="post" class ="memberInfo">
+    <h2>회사 회원 가입</h2>
+    <form action="registerCompanyMember" method="post" class ="memberInfo">
         <div class="form-group">
             <label for="userName">아이디</label>
             <input type="text" id="userName" name="userName" required>
@@ -97,6 +97,14 @@
             <label for="userMail">이메일</label>
             <input type="email" id="userMail" name="userMail" required>
             <span id = "emailMsg"></span>
+        </div>
+        <div class="form-group">
+            <label for="companyNumber">사업자 등록번호</label>
+            <input type="text" id="companyNumber" name="companyNumber" required>
+        </div>
+        <div class="form-group">
+            <label for="companyName">회사/점포 이름</label>
+            <input type="text" id="companyName" name="companyName" required>
         </div>
         <div class="form-group">
             <label for="path">가입경로</label>

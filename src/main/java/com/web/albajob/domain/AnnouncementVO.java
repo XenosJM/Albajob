@@ -10,18 +10,14 @@ import lombok.ToString;
 @Setter
 @ToString
 public class AnnouncementVO {
-	private int pay;
-	private String occupation;
-	private String workType;
-	private String workPeriod;
-	private String workDay;
-	private String workTime;
-	private String endTime;
-	private int recruitNumber;
-	private String workInfo;
-	private String applyMethod;
-	private String managerName;
-	private String managerPhone;
-	private String managerPage;
-	private String enterpriseInfo;
+	private int announcementId; // (PK)
+	private int pay; // 급여
+	private String jobName; // 업직종 (FK)
+	private String workPeriod; // 근무기간
+	private String workDay; // 근무요일
+	private String workTime; // 근무시간
+	private int recruitNumber; // 모집인원
+	private String cityName; // 근무지역 (FK)
+	private String managerName; // 담당자 이름
+	private String managerPhone; // 담당자 전화
 }

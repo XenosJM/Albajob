@@ -61,16 +61,34 @@ public class CompanyMemberServiceImple implements CompanyMemberService {
 		return companyMemberMapper.updatePW(vo);
 	}
 
+//	log.info(encoder.encode(userPW));
+//	log.info(encoder.matches(vo.getUserPassword(), encoder.encode(userPW)));
 	@Override
 	public int memberCheck(String userName,String userPW) {
+	
 		CompanyMemberVO vo = companyMemberMapper.memberCheck(userName);
-		if(vo != null&&encoder.matches(vo.getUserPassword(), userPW)) {
+		
+		if(vo != null&&encoder.matches(userPW,vo.getUserPassword())) {
 			return 1;
 		}else {
 			return 0;
 			
 		}		
 	}
+
+	@Override
+	public String checkId(String memberId) {
+		log.info("checkId");
+		return companyMemberMapper.checkId(memberId);
+	}
+
+	@Override
+	public String chekcEmail(String memberEmail) {
+		log.info("checkEmail");
+		return companyMemberMapper.checkEmail(memberEmail);
+	}
+	
+	
 	
 	
 

@@ -6,12 +6,56 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.web.albajob.persistence.AnnouncementMapper">
 	
 	<resultMap type="com.web.albajob.domain.AnnouncementVO" id="announcementResultMap">
-		<id property="" column="" />
-		<result property="" column="" />
+		<id property="announcementId" column="ANNOUNCEMENT_ID" />
+		<result property="pay" column="PAY" />
+		<result property="jobId" column="JOB_ID" />
+		<result property="workPeriod" column="WORK_PERIOD" />
+		<result property="workDay" column="WORK_DAY" />
+		<result property="workTime" column="WORK_TIME" />
+		<result property="reqruitNumber" column="RECRUIT_NUMBER" />
+		<result property="cityId" column="CITY_ID" />
+		<result property="managerName" column="MANAGER_NAME" />
+		<result property="managerPhone" column="MANAGER_PHONE" />
 	</resultMap>
 	
-	<select id="selectAnnouncement" resultMap="announcementResultMap">
+	<insert id="create">
+		INSERT INTO ANNOUNCEMENT
+		(ANNOUNCEMENT_ID, PAY, JOB_ID, WORK_PERIOD, WORK_DAY, WORK_TIME,
+		RECRUIT_NUMBER, CITY_ID, MANAGER_NAME, MANAGER_PHONE)
+		VALUES (ANNOUNCEMENT_SEQ.NEXTVAL, #{pay}, #{jobId},
+		#{workPeriod}, #{workDay}, #{workTime}, #{recruitNumber},
+		#{cityId}, #{managerName}, #{managerPhone})
+	</insert>
+	
+	<select id="selectAll" resultMap="announcementResultMap">
 		SELECT * FROM ANNOUNCEMENT
 	</select>
 	
+	<select id="selectByJob" resultMap="announcementResultMap">
+		SELECT * FROM ANNOUNCEMENT BY JOB_ID DESC
+	</select>
+	
+	<select id="selectOne" resultMap="announcementResultMap">
+		SELECT * FROM ANNOUNCEMENT
+		WHERE ANNOUNCEMENT_ID = #{announcementId}
+	</select>
+	
+	<update id="update">
+		UPDATE ANNOUNCEMENT
+		SET PAY = #{pay},
+			JOB_ID = #{jobId},
+			WORK_PERIOD = #{workPeriod},
+			WORK_DAY = #{workDay},
+			WORK_TIME = #{workTime},
+			RECRUIT_NUMBER = #{recruitNumber},
+			CITY_ID = #{cityId},
+			MANAGER_NAME = #{managerName},
+			MANAGER_PHONE = #{managerPhone}
+		WHERE ANNOUNCEMENT_ID = #{announcementId}
+	</update>
+	
+	<delete id="delete">
+		DELETE ANNOUNCEMENT
+		WHERE ANNOUNCEMENT_ID = #{announcementId}
+	</delete>
 </mapper>

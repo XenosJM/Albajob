@@ -77,7 +77,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE USER_ID = #{userId}
 	</update>
 
-	<select id="memberCheck" resultMap="ComapnyMemberResultMap">
+	<select id="memberCheck" resultMap="CompanyMemberResultMap">
 		SELECT USER_PASSWORD,
 		USER_NAME FROM CompanyMember WHERE USER_NAME = #{userName}
 	</select>

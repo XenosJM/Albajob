@@ -17,13 +17,13 @@ public class UtilServiceImple implements UtilService {
 	private CompanyMemberMapper companyMemberMapper;
 	
 	@Override
-	public String checkId(String memberId) {
+	public String companyCheckId(String memberId) {
 		log.info("checkId()");
 		return companyMemberMapper.checkId(memberId);
 	}
 
 	@Override
-	public String checkEmail(String memberEmail) {
+	public String companyCheckMail(String memberEmail) {
 		log.info("checkEmail()");
 		return companyMemberMapper.checkEmail(memberEmail);
 	}  // end checkEmail
