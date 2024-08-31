@@ -6,7 +6,7 @@ import com.web.albajob.domain.AnnouncementVO;
 
 public interface AnnouncementService {
 	int insert(AnnouncementVO announcementVO);
-	List<AnnouncementVO> findAll();
+	List<AnnouncementVO> findAll(String userName);
 	List<AnnouncementVO> findByJob(int jobId);
 	AnnouncementVO findOne(int announcementId);
 	int updateAnnouncement(AnnouncementVO announcementVO);

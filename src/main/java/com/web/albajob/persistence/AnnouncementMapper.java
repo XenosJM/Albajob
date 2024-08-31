@@ -9,7 +9,7 @@ import com.web.albajob.domain.AnnouncementVO;
 @Mapper
 public interface AnnouncementMapper {
 	int create(AnnouncementVO announcementVO);
-	List<AnnouncementVO> selectAll();
+	List<AnnouncementVO> selectAll(String userName);
 	List<AnnouncementVO> selectByJob(int jobId);
 	AnnouncementVO selectOne(int announcementId);
 	int update(AnnouncementVO announcementVO);
