@@ -77,8 +77,9 @@
 						</ul>
 					</div>
 					<div class="right">
-				        <button class="btn btn-primary right" id="memberLogin">로그인</button>
-				        <button class="btn btn-success right" id="memberRegist">회원가입</button>
+				        <button class="btn btn-primary right" id="memberLogin" onclick="location.href='member/login';">로그인</button>
+				        <button class="btn btn-success right" id="memberRegist" onclick="location.href='member/memberRegist';">회원가입</button>
+				        <button class="btn btn-success right" id="resume" onclick="location.href='resume/list';">이력서 등록</button>
 					</div>
 				</nav>
 				<div id="additional-gnb">

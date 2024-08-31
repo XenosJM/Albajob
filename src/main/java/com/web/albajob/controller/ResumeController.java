@@ -42,7 +42,6 @@ public class ResumeController {
 	@GetMapping("/detail")
 	public void readAllResumeUserName(Model model, int resumeId, String userName) {
 		log.info("readAllResumeUserName()");
-		
 		List<ResumeVO> vo = resumeService.getAllResumeId(resumeId, userName);
 		List<MemberVO> userVO = memberService.getAllMember(userName);
 		model.addAttribute("vo", vo);
@@ -50,6 +49,13 @@ public class ResumeController {
 		
 	}
 	
+	@GetMapping("/regist")
+	public void readAllResumeIdUserName(Model model, String userName) {
+		log.info("readAllResumeUserName()");
+		List<MemberVO> userVO = memberService.getAllMember(userName);
+		model.addAttribute("userVO", userVO);
+		
+	}
 	
 	@PostMapping("/input")
 	public int createResume(Model model, ResumeVO resumeVO) {
@@ -57,11 +63,16 @@ public class ResumeController {
 		
 		String userName = resumeVO.getUserName();
 		log.info("userName : " + userName);	
+		int result = 0;
+		if(resumeVO == null) {
+			result = resumeService.createResume(resumeVO);
+			log.info("이력서 등록");
+		} else {
+			result = resumeService.updateReview(resumeVO);
+			log.info("이력서 수정");
+		}
 		
-		
-		
-		return 0;
-		
+		return result;		
 	}
 	
 	

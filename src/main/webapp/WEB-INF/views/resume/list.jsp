@@ -24,7 +24,7 @@
 		</tr>
 	</thead>
 	</table>
-	<button onclick="location.href='../resume/detail?userName=${userName}'">이력서 등록</button>
+	<button onclick="location.href='../resume/regist?userName=${userName}'">이력서 등록</button>
 	
 	<div id="resume"></div>
 	<script type="text/javascript">
